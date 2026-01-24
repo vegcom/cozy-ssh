@@ -1,0 +1,22 @@
+# ~/.ssh/environment.yml
+
+# mamba env create -f environment.yml
+# mamba env update -f environment.yml --prune
+name: SSH-profile
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # Core Python
+  - python=3.11
+  # Networking and security
+  - openssl
+  - cryptography
+  - requests
+  # System utilities
+  - python-dotenv
+  # Development and testing
+  - pytest
+  - ruff
+  - flake8
+  - pre-commit

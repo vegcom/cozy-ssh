@@ -1,0 +1,28 @@
+# ~/.ssh/config
+AddKeysToAgent yes
+BatchMode yes
+
+# General host settings
+PermitLocalCommand yes
+RequestTTY yes
+StrictHostKeyChecking no
+
+# Canonicalize to ensure hosts are matched correctly
+CanonicalizeFallbackLocal yes
+CanonicalizeHostname always
+CanonicalizeMaxDots 0
+
+# General imports
+Include ssh_config.d/*.conf
+
+# Log level, for overrides check:
+Include ~/.ssh/ssh_config.d/opt/logging.conf
+
+# Multiplexers configuration
+Include ~/.ssh/ssh_config.d/opt/multiplex.conf
+
+# Keepalive
+ServerAliveInterval 16
+ServerAliveCountMax 16
+
+UserKnownHostsFile ~/.ssh/known_hosts/unsorted

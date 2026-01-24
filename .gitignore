@@ -1,0 +1,15 @@
+# excludes
+authorized_keys/*
+ctrl/*
+keys-archive/
+keys/*
+known_hosts/*
+ssh_config.d/restricted/*.conf
+# dir structure
+!authorized_keys/
+!ctrl/.gitkeep
+!keys-archive/.gitkeep
+!keys/.gitkeep
+!known_hosts/.gitkeep
+!ssh_config.d/restricted
+!ssh_config.d/restricted/.gitkeep
