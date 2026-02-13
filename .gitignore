@@ -1,15 +1,15 @@
-# excludes
-authorized_keys/*
-ctrl/*
-keys-archive/
-keys/*
-known_hosts/*
 ssh_config.d/restricted/*.conf
-# dir structure
-!authorized_keys/
-!ctrl/.gitkeep
-!keys-archive/.gitkeep
-!keys/.gitkeep
-!known_hosts/.gitkeep
-!ssh_config.d/restricted
+known_hosts/*
+keys/*
+keys-archive/
+ctrl/*
+authorized_keys
+.vscode
+.stfolder
 !ssh_config.d/restricted/.gitkeep
+!ssh_config.d/restricted
+!known_hosts/.gitkeep
+!keys/cao_key
+!keys/.gitkeep
+!keys-archive/.gitkeep
+!ctrl/.gitkeep
