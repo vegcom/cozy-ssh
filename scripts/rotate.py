@@ -10,15 +10,21 @@ key_dir = home / ".ssh" / "keys"
 archive_dir = key_dir.parent / "keys-archive"
 archive_dir.mkdir(parents=True, exist_ok=True)
 
-key_types = ["rsa", "ecdsa", "ed25519"]
+# (name, type) — git_ed25519 is the ssh signing key for git commits
+key_specs = [
+    ("id_rsa", "rsa"),
+    ("id_ecdsa", "ecdsa"),
+    ("id_ed25519", "ed25519"),
+    ("git_ed25519", "ed25519"),
+]
 timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')
 
 print("🔁 Rotating SSH keys...")
 
-for key_type in key_types:
-    key = key_dir / f"id_{key_type}"
+for key_name, key_type in key_specs:
+    key = key_dir / key_name
     pub = key.with_name(f"{key.name}.pub")
-    new_key = key_dir / f"id_{key_type}.new"
+    new_key = key_dir / f"{key_name}.new"
     new_pub = new_key.with_name(f"{new_key.name}.pub")
 
     # Backup to .bak

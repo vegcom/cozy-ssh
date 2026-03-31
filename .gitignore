@@ -1,15 +1,3 @@
-ssh_config.d/restricted/*.conf
-known_hosts/*
-keys/*
-keys-archive/
-ctrl/*
+# excludes
 authorized_keys
-.vscode
-.stfolder
-!ssh_config.d/restricted/.gitkeep
-!ssh_config.d/restricted
-!known_hosts/.gitkeep
-!keys/cao_key
-!keys/.gitkeep
-!keys-archive/.gitkeep
-!ctrl/.gitkeep
+allowed_signers
