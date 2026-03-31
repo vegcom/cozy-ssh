@@ -8,13 +8,13 @@ BASE = Path(__file__).resolve().parent
 DIST = BASE / "dist"
 SSH_DIR = Path.home() / ".ssh"
 
-def find_pwsh():
+def find_pwsh() -> str:
     for exe in ("pwsh", "powershell"):
         if shutil.which(exe):
             return exe
     raise RuntimeError("No PowerShell interpreter found")
 
-def main():
+def main() -> None:
     if not SSH_DIR.exists():
         print(f"~/.ssh does not exist at {SSH_DIR}")
         return
