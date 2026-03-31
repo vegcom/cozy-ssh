@@ -20,5 +20,5 @@ Make a good readme
 ## Games
 
 - Dungeon Crawl Stone Soup
-  - https://crawl.akrasiac.org/
-  - https://crawl.akrasiac.org/cao_key
+  - <https://crawl.akrasiac.org/>
+  - <https://crawl.akrasiac.org/cao_key>
