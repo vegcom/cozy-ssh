@@ -25,4 +25,3 @@ Include ~/.ssh/ssh_config.d/opt/multiplex.conf
 ServerAliveInterval 16
 ServerAliveCountMax 16
 
-UserKnownHostsFile ~/.ssh/known_hosts/unsorted

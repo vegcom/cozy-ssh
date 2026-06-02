@@ -2,7 +2,7 @@
 
 # mamba env create -f environment.yml
 # mamba env update -f environment.yml --prune
-name: SSH-profile
+name: cozy-ssh
 channels:
   - conda-forge
   - defaults

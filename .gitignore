@@ -1,3 +1,4 @@
 # excludes
 authorized_keys
 allowed_signers
+known_hosts
