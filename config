@@ -15,6 +15,9 @@ CanonicalizeMaxDots 0
 # General imports
 Include ssh_config.d/*.conf
 
+# Key  management
+Include ~/.ssh/ssh_config.d/opt/keys.conf
+
 # Log level, for overrides check:
 Include ~/.ssh/ssh_config.d/opt/logging.conf
 
@@ -24,4 +27,3 @@ Include ~/.ssh/ssh_config.d/opt/multiplex.conf
 # Keepalive
 ServerAliveInterval 16
 ServerAliveCountMax 16
-
