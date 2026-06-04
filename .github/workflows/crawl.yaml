@@ -1,0 +1,15 @@
+name: Test ssh_config(Via crawl—yes…dungeon crawl stone soup)
+on: [push]
+jobs:
+  check_render:
+  # 1  is expected
+  # 255 is failed to render or failed to connect
+  # 0 is never expected
+   runs-on: ubuntu-latest
+   steps:
+      - uses: actions/checkout@v5
+      - run: if $(ssh -F ${{ github.workspace }}/config -T crawl </dev/null 2>/dev/null 1>/dev/null ; [ ${?} -ne 255 ]) ; then printf '%s\n' '✅' ; exit 0 ; else printf '%s\n' '⛔' ; exit 1 ; fi
+        continue-on-error: true
+        id: crawl
+      - if: ${{ failure() && steps.crawl.conclusion == 'failure' }}
+        run: printf '%s\n' '👍'
