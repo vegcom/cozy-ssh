@@ -15,17 +15,17 @@ ServerAliveCountMax 16
 Include ssh_config.d/*.conf
 
 # Log level, for overrides check:
-Include .ssh/ssh_config.d/opt/logging.conf
+Include ssh_config.d/opt/logging.conf
 
 # Multiplexers configuration
-Include .ssh/ssh_config.d/opt/multiplex.conf
+Include ssh_config.d/opt/multiplex.conf
 
 # Allow for fallbacks:
 #     see helpers/rotate.py
-IdentityFile ~/.ssh/keys/id_rsa
-IdentityFile ~/.ssh/keys/id_ed25519
+IdentityFile keys/id_rsa
+IdentityFile keys/id_ed25519
 # Backup keys always stored as such
-IdentityFile ~/.ssh/keys/id_rsa.bak
-IdentityFile ~/.ssh/keys/id_ed25519.bak
+IdentityFile keys/id_rsa.bak
+IdentityFile keys/id_ed25519.bak
 
 

@@ -1,5 +1,4 @@
 # ~/.ssh/config.fallback
-
-Include .ssh/ssh_config.d/keys.conf
+Include ssh_config.d/keys.conf
 StrictHostKeyChecking no
 UserKnownHostsFile no
