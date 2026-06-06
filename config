@@ -22,10 +22,9 @@ Include ssh_config.d/opt/multiplex.conf
 
 # Allow for fallbacks:
 #     see helpers/rotate.py
-IdentityFile keys/id_rsa
-IdentityFile keys/id_ed25519
+IdentityFile ~/.ssh/keys/id_rsa
+IdentityFile ~/.ssh/keys/id_ed25519
 # Backup keys always stored as such
-IdentityFile keys/id_rsa.bak
-IdentityFile keys/id_ed25519.bak
-
+IdentityFile ~/.ssh/keys/id_rsa.bak
+IdentityFile ~/.ssh/keys/id_ed25519.bak
 
