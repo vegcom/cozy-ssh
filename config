@@ -5,7 +5,7 @@ BatchMode yes
 # General host settings
 PermitLocalCommand yes
 RequestTTY yes
-StrictHostKeyChecking yes
+StrictHostKeyChecking accept-new
 
 # Keepalive
 ServerAliveInterval 16
