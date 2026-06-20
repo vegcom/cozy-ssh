@@ -1,4 +1,6 @@
 # ~/.ssh/config
+
+# Operationn
 AddKeysToAgent yes
 BatchMode yes
 
@@ -14,11 +16,10 @@ ServerAliveCountMax 16
 # General imports
 Include ssh_config.d/*.conf
 
-# Log level, for overrides check:
-Include ssh_config.d/opt/logging.conf
-
-# Multiplexers configuration
-Include ssh_config.d/opt/multiplex.conf
+# Parsing
+CanonicalizeHostname yes
+CanonicalizeMaxDots 1
+CanonicalizeFallbackLocal yes
 
 # Allow for fallbacks:
 #     see helpers/rotate.py
@@ -28,3 +29,9 @@ IdentityFile ~/.ssh/keys/id_ed25519
 IdentityFile ~/.ssh/keys/id_rsa.bak
 IdentityFile ~/.ssh/keys/id_ed25519.bak
 
+Match final
+  # Log level, for overrides check:
+  Include ssh_config.d/opt/logging.conf
+
+  # Terminal Multiplexing
+  Include ssh_config.d/opt/multiplex.conf
