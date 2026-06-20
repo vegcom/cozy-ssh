@@ -3,6 +3,7 @@
 # Operationn
 AddKeysToAgent yes
 BatchMode yes
+VisualHostKey yes
 
 # General host settings
 PermitLocalCommand yes
@@ -14,7 +15,8 @@ ServerAliveInterval 16
 ServerAliveCountMax 16
 
 # General imports
-Include ssh_config.d/*.conf
+Match canonical
+  Include ssh_config.d/*.conf
 
 # Parsing
 CanonicalizeHostname yes
@@ -32,6 +34,11 @@ IdentityFile ~/.ssh/keys/id_ed25519.bak
 Match final
   # Log level, for overrides check:
   Include ssh_config.d/opt/logging.conf
-
   # Terminal Multiplexing
   Include ssh_config.d/opt/multiplex.conf
+  # Domains
+  Include ssh_config.d/opt/canonicaldomains.conf
+  # Environment variables general
+  Include ssh_config.d/opt/envs.conf
+  # OS detection tooling
+  Include ssh_config.d/opt/os_detection.conf
