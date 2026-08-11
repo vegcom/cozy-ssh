@@ -3,7 +3,7 @@
 # Operationn
 AddKeysToAgent yes
 BatchMode yes
-VisualHostKey yes
+VisualHostKey no
 
 # General host settings
 PermitLocalCommand yes
