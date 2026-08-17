@@ -1,4 +1,9 @@
 # ~/.ssh/config.fallback
-Include ssh_config.d/keys.conf
+
 StrictHostKeyChecking no
 UserKnownHostsFile no
+
+IdentityFile ~/.ssh/keys/id_rsa
+IdentityFile ~/.ssh/keys/id_ed25519
+IdentityFile ~/.ssh/keys/id_rsa.bak
+IdentityFile ~/.ssh/keys/id_ed25519.bak
