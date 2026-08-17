@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "formatters": {
+    "cozy_clean": {
+      "format": "\u001b[1m\u001b[32m📡 [cozy-ssh]\u001b[0m %(message)s"
+    },
+    "cozy_debug": {
+      "format": "\u001b[1m\u001b[36m⚙️ [%(name)s]\u001b[0m %(asctime)s - %(levelname)s - %(message)s",
+      "datefmt": "%H:%M:%S"
+    }
+  },
+  "handlers": {
+    "console_info": {
+      "class": "logging.StreamHandler",
+      "level": "INFO",
+      "formatter": "cozy_clean",
+      "stream": "ext://sys.stderr"
+    },
+    "console_debug": {
+      "class": "logging.StreamHandler",
+      "level": "DEBUG",
+      "formatter": "cozy_debug",
+      "stream": "ext://sys.stderr"
+    }
+  },
+  "loggers": {
+    "cozy_ssh": {
+      "handlers": ["console_info", "console_debug"],
+      "level": "DEBUG",
+      "propagate": false
+    }
+  }
+}
