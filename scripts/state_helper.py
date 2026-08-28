@@ -33,9 +33,6 @@ def main():
     except SystemExit:
         sys.exit(0)
 
-    is_gateway = "0" if args.proxy_jump_content in ("", "none") else "1"
-
-
     cache_dir = Path.home() / ".ssh" / "cache"
     cache_dir.mkdir(exist_ok=True)
     session_file = cache_dir / f"session_{args.conn_hash}.conf"
@@ -43,7 +40,6 @@ def main():
     log.debug("[+] Mapping local session state")
     log.debug(f" -> Target input: {args.original_target}")
     log.debug(f" -> Target routed: {args.resolved_target}")
-    log.debug(f" -> Gateway mode: {is_gateway}")
     log.debug(f" -> Initiating host: {args.init_host}")
     log.debug(f" -> ProxyJump: {args.proxy_jump_content or 'none'}")
 
@@ -52,10 +48,10 @@ def main():
             f.write(f'Match final host="{args.resolved_target}"\n')
             f.write(
                 f'  SetEnv '
-                f'__PROXYJUMP_GATE__="{is_gateway}" '
                 f'__SSH_CONN_HASH_GATE__="{args.conn_hash}" '
                 f'__SSH_CONN_INIT_HOST_GATE__="{args.init_host}" '
                 f'__SSH_ORIGINAL_TARGET_GATE__="{args.original_target}" '
+                f'__SSH_PROXYJUMP_GATE__="{args.proxy_jump_content}" '
                 f'__SSH_RESOLVED_TARGET_GATE__="{args.resolved_target}"\n'
             )
             log.debug(f" -> Conf file: {session_file}")
