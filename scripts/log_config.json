@@ -6,7 +6,7 @@
       "format": "\u001b[1m\u001b[32m📡 [cozy-ssh]\u001b[0m %(message)s"
     },
     "cozy_debug": {
-      "format": "\u001b[1m\u001b[36m⚙️ [%(name)s]\u001b[0m %(asctime)s - %(levelname)s - %(message)s",
+      "format": "\u001b[1m\u001b[36m⚙️ [%(name)s]\u001b[0m %(asctime)s - %(levelname)-8s - %(message)-6s",
       "datefmt": "%H:%M:%S"
     }
   },
@@ -28,11 +28,6 @@
     "cozy_ssh": {
       "handlers": ["console_debug"],
       "level": "DEBUG",
-      "propagate": false
-    },
-    "os_check": {
-      "handlers": ["console_debug"],
-      "level": "ERROR",
       "propagate": false
     }
   }

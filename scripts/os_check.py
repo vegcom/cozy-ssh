@@ -24,7 +24,7 @@ def main():
             help="Evaluate if system is a particular platform",
             default="linux", choices=["linux", "windows", "win32", "win"])
 
-    log = logging.getLogger("os_check")
+    log = logging.getLogger("cozy_ssh")
 
     try:
         args = parser.parse_args()
@@ -38,7 +38,6 @@ def main():
         log.debug(f"[+] 👍 localhost os is {_os}")
         sys.exit(0)
     else:
-        log.warning(f"[+] 🚫 localhost os is not {_os}")
         sys.exit(1)
 
 if __name__ == "__main__":

@@ -38,10 +38,10 @@ def main():
     session_file = cache_dir / f"session_{args.conn_hash}.conf"
 
     log.info(f"[+] Mapping local session state {args.original_target} {'(via ' + args.proxy_jump_content + ')' if args.proxy_jump_content else ''}")
-    log.debug(f" -> Target input: {args.original_target}")
-    log.debug(f" -> Target routed: {args.resolved_target}")
-    log.debug(f" -> Initiating host: {args.init_host}")
-    log.debug(f" -> ProxyJump: {args.proxy_jump_content or 'none'}")
+    log.debug(f"  -> Target input: {args.original_target}")
+    log.debug(f"  -> Target routed: {args.resolved_target}")
+    log.debug(f"  -> Initiating host: {args.init_host}")
+    log.debug(f"  -> ProxyJump: {args.proxy_jump_content or '(none)'}")
 
     try:
         with open(session_file, "w") as f:
@@ -54,7 +54,7 @@ def main():
                 f'__SSH_PROXYJUMP_GATE__="{args.proxy_jump_content}" '
                 f'__SSH_RESOLVED_TARGET_GATE__="{args.resolved_target}"\n'
             )
-            log.debug(f" -> Conf file: {session_file}")
+            log.debug(f"  -> Conf file: {session_file}")
     except Exception as e:
         log.error(getattr(e, '__dict__', str(e)))
 
