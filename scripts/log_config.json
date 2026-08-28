@@ -26,8 +26,13 @@
   },
   "loggers": {
     "cozy_ssh": {
-      "handlers": ["console_info", "console_debug"],
+      "handlers": ["console_debug"],
       "level": "DEBUG",
+      "propagate": false
+    },
+    "os_check": {
+      "handlers": ["console_debug"],
+      "level": "ERROR",
       "propagate": false
     }
   }
