@@ -15,8 +15,7 @@ ServerAliveInterval 16
 ServerAliveCountMax 16
 
 # General imports
-Match canonical
-  Include ssh_config.d/*.conf
+Include ssh_config.d/*.conf
 
 # Parsing
 CanonicalizeHostname yes
@@ -36,8 +35,6 @@ Match final
   Include ssh_config.d/opt/logging.conf
   # Terminal Multiplexing
   Include ssh_config.d/opt/multiplex.conf
-  # Domains
-  Include ssh_config.d/opt/canonicaldomains.conf
   # Environment variables general
   Include ssh_config.d/opt/envs.conf
   # OS detection tooling
