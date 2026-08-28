@@ -37,7 +37,7 @@ def main():
     cache_dir.mkdir(exist_ok=True)
     session_file = cache_dir / f"session_{args.conn_hash}.conf"
 
-    log.debug("[+] Mapping local session state")
+    log.info(f"[+] Mapping local session state {args.original_target} {'(via ' + args.proxy_jump_content + ')' if args.proxy_jump_content else ''}")
     log.debug(f" -> Target input: {args.original_target}")
     log.debug(f" -> Target routed: {args.resolved_target}")
     log.debug(f" -> Initiating host: {args.init_host}")
