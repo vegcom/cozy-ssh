@@ -9,6 +9,7 @@ VisualHostKey no
 PermitLocalCommand yes
 RequestTTY yes
 StrictHostKeyChecking accept-new
+CheckHostIP yes
 
 # Keepalive
 ServerAliveInterval 16
