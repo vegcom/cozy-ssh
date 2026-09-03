@@ -37,22 +37,26 @@ def main() -> None:
     path = CACHE_DIR / f"session_{conn_hash}.conf"
 
     try:
-        path.write_text(
-            (
-                f'Match final host="{resolved}"\n'
-                f"  SetEnv "
-                f'__SSH_CONN_HASH_GATE__="{conn_hash}" '
-                f'__SSH_CONN_INIT_HOST_GATE__="{init_host}" '
-                f'__SSH_ORIGINAL_TARGET_GATE__="{original}" '
-                f'__SSH_PROXYJUMP_GATE__="{jump}" '
-                f'__SSH_RESOLVED_TARGET_GATE__="{resolved}"\n'
-            ),
-            encoding="utf-8",
+        body = (
+            f'Match final host="{resolved}"\n'
+            f"  SetEnv "
+            f'__SSH_CONN_HASH_GATE__="{conn_hash}" '
+            f'__SSH_CONN_INIT_HOST_GATE__="{init_host}" '
+            f'__SSH_ORIGINAL_TARGET_GATE__="{original}" '
+            f'__SSH_PROXYJUMP_GATE__="{jump}" '
+            f'__SSH_RESOLVED_TARGET_GATE__="{resolved}"\n'
         )
-        log.info("[+] session %s -> %s", original, path.name)
-        log.debug("  -> resolved: %s", resolved)
-        log.debug("  -> init host: %s", init_host)
-        log.debug("  -> jump: %s", jump or "(none)")
+        old = path.read_text(encoding="utf-8") if path.exists() else None
+
+        if old is None:
+            log.info("[+] creating %s", path.name)
+            path.write_text(body, encoding="utf-8")
+        elif old != body:
+            log.info("[+] replacing %s", path.name)
+            path.write_text(body, encoding="utf-8")
+        else:
+            log.info("[+] using cached %s", path.name)
+
     except Exception as e:
         log.error("%s: %s", path, e)
 
