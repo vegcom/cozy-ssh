@@ -35,7 +35,7 @@ def main():
     _os = "win32" if args.os in ["win", "win32", "windows"] else "linux"
 
     if sys.platform == _os:
-        log.debug(f"[+] 👍 localhost os is {_os}")
+        log.info(f"[+] localhost os is {_os}")
         sys.exit(0)
     else:
         sys.exit(1)
