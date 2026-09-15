@@ -38,14 +38,24 @@ def main() -> None:
 
     try:
         body = (
-            f'Match final host="{resolved}"\n'
-            f"  SetEnv "
+            f"SetEnv "
             f'__SSH_CONN_HASH_GATE__="{conn_hash}" '
             f'__SSH_CONN_INIT_HOST_GATE__="{init_host}" '
             f'__SSH_ORIGINAL_TARGET_GATE__="{original}" '
             f'__SSH_PROXYJUMP_GATE__="{jump}" '
             f'__SSH_RESOLVED_TARGET_GATE__="{resolved}"\n'
         )
+
+        for line in body.split(" "):
+            if "__" in line:
+                log.debug(f'[+] Found Gateway Metric: {line}')
+
+
+        if jump:
+            log.info(f'[+] routing: {original} {"(via " + jump + ")"}')
+        else:
+            log.info(f'[+] connecting: {original}')
+
         old = path.read_text(encoding="utf-8") if path.exists() else None
 
         if old is None:
