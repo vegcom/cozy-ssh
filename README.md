@@ -30,6 +30,12 @@ Requires >=OpenSSH 9.6
 
 - [PowerShell/openssh-portable](https://github.com/PowerShell/openssh-portable)
 
+```pwsh
+# SSH Agent - as superuser
+Get-Service ssh-agent | Set-Service -StartupType Automatic
+Start-Service ssh-agent
+```
+
 ### Tokens (preffer docse)
 
 |Token|Meaning|

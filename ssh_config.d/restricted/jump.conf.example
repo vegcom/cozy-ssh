@@ -1,0 +1,32 @@
+# ~/.ssh/ssh_config.d/restricted/jump.conf
+
+# ---------------------------------------------------------
+# Jump host
+# ---------------------------------------------------------
+
+Match host="jump.example.com"
+  Tag jump
+  Proxyjump None
+
+# ---------------------------------------------------------
+# Excludes
+# ---------------------------------------------------------
+
+Match final localnetwork="10.0.0.0/24,100.64.0.0/24"
+  ProxyJump None
+
+Match final host="*.cozy.internal,*.local,*.localdomain"
+  ProxyJump None
+
+Match final host="*.example.net"
+  ProxyJump None
+
+# ---------------------------------------------------------
+# Default
+# ---------------------------------------------------------
+
+Match final tagged="jump"
+  ProxyJump None
+
+Match final host="*,!*.*"
+  ProxyJump jump

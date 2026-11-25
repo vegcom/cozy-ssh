@@ -2,7 +2,6 @@
 
 # Operationn
 AddKeysToAgent yes
-BatchMode yes
 VisualHostKey no
 
 # General host settings
@@ -19,7 +18,7 @@ ServerAliveCountMax 16
 Include ssh_config.d/*.conf
 
 # Parsing
-CanonicalizeHostname yes
+CanonicalizeHostname always
 CanonicalizeMaxDots 1
 CanonicalizeFallbackLocal yes
 
